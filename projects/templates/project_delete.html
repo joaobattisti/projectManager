@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmacao {% endblock %}
+
+{% block main %}
+
+    <div class="row">
+            <div class="col">
+
+            </div>
+
+            <div class="col-6">
+
+                <h1><center>Tem certeza que deseja deletar?</center></h1>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   <center><button type="submit" class="btn btn-danger">Delete Projeto</button>
+                   <a href="{% url 'list_project' %}" class="btn btn-primary"> Listar Projetos</a></center>
+                </form>
+
+            </div>
+
+            <div class="col-sm">
+
+            </div>
+    </div>
+{% endblock %}

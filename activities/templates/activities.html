@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Atividades {% endblock %}
+
+{% block main %}
+    <h1><center>Lista de Atividades</center></h1>
+
+    <table class="table table-striped">
+        <thead>
+             <tr>
+                 <th scope="col">ID Atividade</th>
+                 <th scope="col">ID Projeto</th>
+                 <th scope="col">Nome Atividade</th>
+                 <th scope="col">Data Inicio</th>
+                 <th scope="col"> Data Fim</th>
+                 <th scope="col">Finalizado</th>
+
+             </tr>
+        </thead>
+            {% for activity in activities %}
+        <tbody>
+
+                <td>{{ activity.id }}</td>
+                <td>{{ activity.project_id }}</td>
+                <td>{{ activity.activity_name }}</td>
+                <td>{{ activity.activity_datestart }}</td>
+                <td>{{ activity.activity_datefinish }}</td>
+                <td>{{ activity.activity_concluded}}</td>
+                <td><a href="{% url 'activity_update' activity.id %}" class="btn btn-primary"> Update</a></td>
+                <td><a href="{% url 'activity_delete' activity.id %}" class="btn btn-primary"> Deletar</a></td>
+
+        </tbody>
+            {% endfor %}
+    </table>
+
+    <center><a href="{% url 'new_activity' %}" class="btn btn-primary"> Nova Atividade</a>
+    <a href="{% url 'home' %}" class="btn btn-primary"> Retornar home</a></center>
+
+
+{% endblock %}

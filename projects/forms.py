@@ -1,0 +1,8 @@
+from django.forms import ModelForm
+from .models import Project
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ['project_id', 'project_name', 'project_start', 'project_finish']
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Projetos {% endblock %}
+
+{% block main %}
+    <h1><center>Lista de Projetos</center></h1>
+
+    <table class="table table-striped">
+        <thead>
+             <tr>
+                 <th scope="col">ID Projeto</th>
+                 <th scope="col">Nome Projeto</th>
+                 <th scope="col">Data Inicio</th>
+                 <th scope="col">Data Fim</th>
+                 <th scope="col">% Completo</th>
+                 <th scope="col">Atrasado</th>
+                 <th scope="col">Alterar</th>
+                 <th scope="col">Deletar</th>
+             </tr>
+        </thead>
+            {% for project in projects %}
+        <tbody>
+
+                <td href="{% url 'list_activities' %}">{{ project.id }}</td>
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.project_start }}</td>
+                <td>{{ project.project_finish }}</td>
+                <td></td>
+                <td></td>
+                <td><a href="{% url 'project_update' project.id %}" class="btn btn-primary"> Update</a></td>
+                <td><a href="{% url 'project_delete' project.id %}" class="btn btn-primary"> Deletar</a></td>
+
+        </tbody>
+            {% endfor %}
+    </table>
+
+   <center><a href="{% url 'new_project' %}" class="btn btn-primary"> Nova Atividade</a>
+       <a href="{% url 'home' %}" class="btn btn-primary"> Retornar home</a></center>
+{% endblock %}
