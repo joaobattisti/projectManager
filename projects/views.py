@@ -9,8 +9,8 @@ from activities.models import Activity
 @login_required
 def list_project(request):
     projects = Project.objects.all()
-    activity = Activity.objects.all()
-    return render(request, "projects.html", {'projects': projects, 'activity': activity})
+    activities = Activity.objects.all()
+    return render(request, "projects.html", {'activities': activities, 'projects': projects})
 
 @login_required
 def new_project(request):
@@ -19,6 +19,16 @@ def new_project(request):
         form.save()
         return redirect('list_project')
     return render(request, 'new_project.html', {'form': form})
+
+@login_required
+def delete_project(request, id):
+    project = get_object_or_404(Project, pk=id)
+
+    if request.method == 'POST':
+        project.delete()
+        return redirect('list_project')
+
+    return render(request, 'project_delete.html', {'project': project})
 
 @login_required
 def update_project(request, id):
@@ -31,12 +41,3 @@ def update_project(request, id):
 
     return render(request, 'new_project.html', {'form': form})
 
-@login_required
-def delete_project(request, id):
-    project = get_object_or_404(Project, pk=id)
-
-    if request.method == 'POST':
-        project.delete()
-        return redirect('list_project')
-
-    return render(request, 'project_delete.html', {'project': project})

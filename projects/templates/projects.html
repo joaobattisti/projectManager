@@ -1,23 +1,5 @@
 {% extends 'base.html' %}
 
-<script type="text/javascript">
-    function conclued_project(activity){
-        var projeto = document.getElementById(name_project);
-        int ok, total;
-        for (int i=0; i<activity.lenght; i++){
-            if (projeto == atividade.project_id ){
-                total ++;
-                if (atividade.activity_concluded == True){
-                    ok++;
-                }
-            }
-        }
-        results = (ok/total)*100;
-        return (results)
-    }
-
-</script>
-
 {% block title %} Lista de Projetos {% endblock %}
 
 {% block main %}
@@ -26,8 +8,8 @@
     <table class="table table-striped">
         <thead>
              <tr>
-                 <th scope="col">ID Projeto</th>
-                 <th scope="col" id="name_project">Nome Projeto</th>
+                 <th scope="col">ID do Projeto</a></th>
+                 <th scope="col"><a id="name_project">Nome Projeto</a></th>
                  <th scope="col">Data Inicio</th>
                  <th scope="col">Data Fim</th>
                  <th scope="col">% Completo</th>
@@ -39,19 +21,21 @@
             {% for project in projects %}
         <tbody>
 
-                <td href="{% url 'list_activities' %}">{{ project.id }}</td>
-                <td>{{ project.project_name }}</td>
+                <td>{{ project.id }}</td>
+                <td><a href="{% url 'list_activities' %}" id="name_project">{{ project.project_name }}</a></td>
                 <td>{{ project.project_start }}</td>
                 <td>{{ project.project_finish }}</td>
-                <td></td>
-                <td></td>
+                <td>
+
+
+                </td>
+                <td><a></a></td>
                 <td><a href="{% url 'project_update' project.id %}" class="btn btn-primary"> Update</a></td>
                 <td><a href="{% url 'project_delete' project.id %}" class="btn btn-primary"> Deletar</a></td>
-
         </tbody>
             {% endfor %}
     </table>
-
-   <center><a href="{% url 'new_project' %}" class="btn btn-primary"> Nova Atividade</a>
+    <center><a href="{% url 'new_project' %}" class="btn btn-primary"> Nova Atividade</a>
        <a href="{% url 'home' %}" class="btn btn-primary"> Retornar home</a></center>
 {% endblock %}
+
