@@ -5,13 +5,6 @@
 
 {% block main %}
 
-    <div class="row">
-            <div class="col">
-
-            </div>
-
-            <div class="col-6">
-
                 <h1><center>Tem certeza que deseja deletar?</center></h1>
 
                 <form method="POST" enctype="multipart/form-data">
@@ -19,14 +12,6 @@
                    <center><button type="submit" class="btn btn-danger">Delete Atividade</button>
                    <a href="{% url 'list_activities' %}" class="btn btn-primary"> Listar Atividades</a></center>
                 </form>
-
-            </div>
-
-            <div class="col-sm">
-
-            </div>
-    </div>
-
 
 {% endblock %}
 
