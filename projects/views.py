@@ -3,11 +3,14 @@ from django.contrib.auth.decorators import login_required
 from .models import Project
 from .forms import ProjectForm
 
+from activities.models import Activity
+
 # Create your views here.
 @login_required
 def list_project(request):
     projects = Project.objects.all()
-    return render(request, "projects.html", {'projects': projects})
+    activity = Activity.objects.all()
+    return render(request, "projects.html", {'projects': projects, 'activity': activity})
 
 @login_required
 def new_project(request):

@@ -4,24 +4,11 @@
 
 {% block main %}
 
-<div class="row">
-        <div class="col">
-
-        </div>
-
-        <div class="col-6">
             <h1><center>Seja Bem-Vindo</center></h1>
 
             <a href="{% url 'list_project' %}" class="btn btn-primary btn-lg btn-block"> Listar Projetos</a>
             <a href="{% url 'new_project' %}" class="btn btn-primary btn-lg btn-block"> Novo Projeto</a>
             <a href="{% url 'list_activities' %}" class="btn btn-primary btn-lg btn-block"> Listar Atividades</a>
             <a href="{% url 'new_activity' %}" class="btn btn-primary btn-lg btn-block"> Nova Atividade</a>
-
-        </div>
-
-        <div class="col-sm">
-
-        </div>
-</div>
 
 {% endblock %}

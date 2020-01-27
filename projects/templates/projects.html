@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+<script type="text/javascript">
+    function conclued_project(activity){
+        var projeto = document.getElementById(name_project);
+        int ok, total;
+        for (int i=0; i<activity.lenght; i++){
+            if (projeto == atividade.project_id ){
+                total ++;
+                if (atividade.activity_concluded == True){
+                    ok++;
+                }
+            }
+        }
+        results = (ok/total)*100;
+        return (results)
+    }
+
+</script>
+
 {% block title %} Lista de Projetos {% endblock %}
 
 {% block main %}
@@ -9,7 +27,7 @@
         <thead>
              <tr>
                  <th scope="col">ID Projeto</th>
-                 <th scope="col">Nome Projeto</th>
+                 <th scope="col" id="name_project">Nome Projeto</th>
                  <th scope="col">Data Inicio</th>
                  <th scope="col">Data Fim</th>
                  <th scope="col">% Completo</th>
