@@ -26,7 +26,15 @@
                 <td>{{ project.project_start }}</td>
                 <td>{{ project.project_finish }}</td>
                 <td>
+                    <input type="text" id="porcentagem" onload="teste()" readonly>
 
+                    {% for activity in activities %}
+
+                        {% if activity.project_id == project.project_name %}
+
+                        {% endif %}
+
+                    {% endfor %}
 
                 </td>
                 <td><a></a></td>
